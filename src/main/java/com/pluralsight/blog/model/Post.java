@@ -14,6 +14,9 @@ public class Post {
     private String title;
     private String lead;
 
+    @ManyToOne
+    private Category category;
+
     @Column(length=1000000)
     @Lob
     private String body;
@@ -21,6 +24,14 @@ public class Post {
 
     @Temporal(TemporalType.DATE)
     private Date date;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Post() {
         super();
