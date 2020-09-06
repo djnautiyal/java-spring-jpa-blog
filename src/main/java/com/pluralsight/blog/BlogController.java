@@ -26,9 +26,9 @@ public class BlogController {
     @RequestMapping("/")
     public String listPosts(ModelMap modelMap) {
         List<Post> posts = postRepository.findAll();
-        List<Category> categories = categoryRepository.findAll();
-
         modelMap.put("posts", posts);
+
+        List<Category> categories = categoryRepository.findAll();
         modelMap.put("categories", categories);
 
         return "home";
@@ -50,7 +50,6 @@ public class BlogController {
         modelMap.put("posts", posts);
 
         List<Category> categories = categoryRepository.findAll();
-
         modelMap.put("categories", categories);
 
         return "category-list";
